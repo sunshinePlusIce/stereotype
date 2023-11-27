@@ -1,3 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Userbox Canvas */
+.userbox-canvas {
+  width: 600px;
+  height: 120px;
+}
+
+
+/* Userbox Canvas */
 .App {
   text-align: center;
 }
