@@ -1,9 +1,9 @@
 import './dist/output.css';
 
-export default function ValueInput({leading, propName, unitList, placeholder}) {
+export default function ValueInput({leading, propName, unitList, placeholder, setHandler}) {
     return (
-        <div>
-      <label htmlFor="price" className="block text-sm font-medium leading-6 text-gray-900">
+    <div>
+      <label htmlFor="price" className="block text-sm font-medium leading-6 text-gray-300">
         {propName}
       </label>
       <div className="relative mt-2 rounded-md shadow-sm">
@@ -11,16 +11,18 @@ export default function ValueInput({leading, propName, unitList, placeholder}) {
           <span className="text-gray-500 sm:text-sm">{leading}</span>
         </div>
         <input
-          type="text"
+          type="number"
           name="price"
           id="price"
           className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
           placeholder={placeholder}
+          onChange={
+            (event) => {
+                setHandler(Number(event.target.value))
+            }
+          }
         />
         <div className="absolute inset-y-0 right-0 flex items-center">
-          {/* <label htmlFor="currency" className="sr-only">
-            Currency
-          </label> */}
           <select
             id="currency"
             name="currency"
